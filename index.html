@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>جل أوميغا - الحل النهائي للصراصير</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 40px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: #d9534f;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    input, button {
+      padding: 12px;
+      width: 80%;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .alert {
+      background-color: #ffc107;
+      padding: 10px;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .countdown {
+      font-size: 22px;
+      color: #dc3545;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="alert">تنبيه: الكمية المتوفرة محدودة جداً!</div>
+    <img src="https://i.imgur.com/MiG4KzY.jpg" alt="جل أوميغا للقضاء على الصراصير">
+    <h1>جل أوميغا - القضاء التام على الصراصير</h1>
+    <p>تخلص من الصراصير من أول استخدام مع <span class="highlight">جل أوميغا</span> الفعّال!</p>
+    <p>آمن على الأطفال والحيوانات، ويقضي على الأعشاش المخفية.</p>
+    <p>اطلب الآن واحصل على خصم 20% قبل انتهاء الوقت:</p>
+    <div class="countdown" id="countdown">00:00:00</div>
+
+    <form>
+      <input type="text" placeholder="اسمك الكامل" required>
+      <br>
+      <input type="tel" placeholder="رقم الهاتف" required>
+      <br>
+      <input type="text" placeholder="المدينة" required>
+      <br>
+      <button type="submit">اطلب الآن</button>
+    </form>
+  </div>
+
+  <script>
+    // عد تنازلي لمدة 1 ساعة
+    const countdownElement = document.getElementById("countdown");
+    const now = new Date().getTime();
+    const deadline = now + (60 * 60 * 1000); // ساعة واحدة
+
+    const x = setInterval(() => {
+      const current = new Date().getTime();
+      const diff = deadline - current;
+
+      if (diff < 0) {
+        clearInterval(x);
+        countdownElement.innerHTML = "انتهى العرض!";
+      } else {
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        countdownElement.innerHTML = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
